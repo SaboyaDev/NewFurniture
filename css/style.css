@@ -37,13 +37,13 @@ a {
 	color: #000;
 }
 
-.main-container {
-	max-width: 1920px;
-	margin: 0 auto;
+img {
+	max-width: 100%;
+	display: block;
 }
 
 .container {
-	max-width: 1200px;
+	max-width: 1460px;
 	margin: 0 auto;
 	padding: 0 4rem;
 }
@@ -80,4 +80,28 @@ a {
 	.hero {
 		height: 55rem;
 	}
+}
+
+/* Categories */
+.categories h2 {
+	text-align: center;
+}
+
+.category-list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.category a {
+	display: block;
+	text-align: center;
+	font-size: 2rem;
+	padding: 1.5rem 2rem;
+}
+
+.category a:hover {
+	background-color: #037bc0;
+	color: #fff;
+	border-bottom-right-radius: 1rem;
 }
