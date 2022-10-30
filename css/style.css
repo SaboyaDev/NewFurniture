@@ -1,9 +1,15 @@
+:root {
+	--main-blue: #037bc0;
+	--light-gray: #e1e1e1;
+	--light: #fff;
+	--dark: rgb(12, 12, 12);
+}
 /* Reset */
 html {
 	box-sizing: border-box;
 	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
-
 *,
 *::before,
 *::after {
@@ -11,7 +17,6 @@ html {
 	margin: 0;
 	padding: 0;
 }
-
 body {
 	margin: 0;
 	padding: 0;
@@ -19,78 +24,130 @@ body {
 	font-size: 1.6rem;
 	line-height: 2;
 }
-
 /* Global */
 h1,
 h2,
 h3 {
 	font-family: 'Playfair Display', serif;
-	margin: 0 0 2rem 0;
+	margin: 0 0 7rem 0;
 }
-
 h1 {
-	font-size: 5rem;
+	font-size: 3.8rem;
 }
-
+h2 {
+	font-size: 3.2rem;
+	display: inline-block;
+}
+h3 {
+	font-size: 2.4rem;
+}
+@media (min-width: 640px) {
+	h1 {
+		font-size: 5rem;
+	}
+	h2 {
+		font-size: 4rem;
+	}
+	h3 {
+		font-size: 3rem;
+	}
+}
 a {
 	text-decoration: none;
 	color: #000;
 }
-
+/* Resposive Images */
 img {
-	max-width: 100%;
+	width: 100%;
 	display: block;
 }
-
 .container {
 	max-width: 1460px;
 	margin: 0 auto;
+	text-align: center;
+}
+
+.container h2 {
 	padding: 0 4rem;
+	border-bottom: 1px solid var(--light-gray);
+}
+/* Utility Styles */
+.px-4 {
+	padding: 0 4rem;
+}
+.margin-btm {
+	margin-bottom: 11rem;
+}
+/* Sale Banner */
+/* -----------------------------------------------------------*/
+.banner {
+	background-color: var(--main-blue);
+	padding: 1.5rem;
+	text-align: center;
+}
+.banner p {
+	color: var(--light);
+	font-weight: bold;
 }
 
 /* Header & Navigation */
+/* -----------------------------------------------------------*/
 .logo {
 	text-align: center;
-	margin-top: 5rem;
+	margin: 2rem;
 }
-
 .logo span {
-	color: #037bc0;
+	color: var(--main-blue);
 }
-
 .navigation-container {
-	border-top: 1px solid #e1e1e1;
+	border-top: 1px solid var(--light-gray);
 }
-
 .main-nav {
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding: 2rem 4rem;
 	display: flex;
 	justify-content: space-between;
+	display: none;
 }
-
 .hero {
 	background-image: url(../img/principal.jpg);
 	background-position: center;
 	background-size: cover;
 	height: 25rem;
+	margin-bottom: 5rem;
+}
+@media (min-width: 640px) {
+	.logo {
+		margin-top: 5rem;
+	}
+	.main-nav {
+		display: flex;
+	}
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
 	.hero {
 		height: 55rem;
 	}
 }
 
 /* Categories */
+/* -----------------------------------------------------------*/
+.categories {
+	margin-bottom: 19rem;
+}
 .categories h2 {
 	text-align: center;
 }
-
 .category-list {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 2rem;
+	/* display: flex;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory; */
+	gap: 6rem;
+}
+.category {
+	scroll-snap-align: center;
+	flex-basis: 10rem;
 }
 
 .category a {
@@ -98,10 +155,85 @@ img {
 	text-align: center;
 	font-size: 2rem;
 	padding: 1.5rem 2rem;
+	/* background-color: var(--light-gray); */
+	background-color: var(--main-blue);
+	/* color: var(--dark); */
+	color: var(--light);
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
 }
 
-.category a:hover {
-	background-color: #037bc0;
-	color: #fff;
-	border-bottom-right-radius: 1rem;
+@media only screen and (min-width: 640px) {
+	.category-list {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 4rem;
+	}
+}
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (min-width: 1024px) {
+	.category-list {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 4rem;
+	}
+}
+@media only screen and (min-width: 1280px) {
+}
+
+/* About Us */
+/* -----------------------------------------------------------*/
+.about-us {
+	background-color: var(--main-blue);
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+.about-us h2 {
+	font-size: 3.2rem;
+	line-height: 1;
+	margin-bottom: 3rem;
+}
+.about-us__content {
+	padding: 5rem 4rem;
+	color: var(--light);
+	line-height: 2.3;
+	background-color: var(--main-blue);
+	margin-top: -3rem;
+	color: var(--light);
+}
+@media only screen and (min-width: 768px) {
+	.about-us {
+		flex-direction: row;
+	}
+	.about-us__content {
+		padding: 10rem 4rem;
+		max-width: 40%;
+		margin-top: 0;
+	}
+	.about-us__img {
+		width: 55%;
+		position: relative;
+		background-image: url('../img/nosotros.jpg');
+		background-size: cover;
+		background-position: center;
+	}
+	.about-us__img img {
+		display: none;
+	}
+}
+@media only screen and (min-width: 1280px) {
+	.about-us__content {
+		padding-top: 14rem;
+		padding-bottom: 14rem;
+	}
+}
+/* -----------------------------------------------------------*/
+
+@media only screen and (min-width: 640px) {
+}
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (min-width: 1024px) {
+}
+@media only screen and (min-width: 1280px) {
 }
